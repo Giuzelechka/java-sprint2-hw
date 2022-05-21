@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -6,12 +8,15 @@ public class Main {
         int amountFiles = 3; // количество месячных отчетов
 
         Scanner scanner = new Scanner(System.in);
-        ConsoleApp consoleApp = new ConsoleApp();
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = new YearlyReport();
         DataReconciliation dataReconciliation = new DataReconciliation();
+        ArrayList<Integer> sumOfIncome = new ArrayList<>();
+        ArrayList<Integer> sumOfExpense = new ArrayList<>();
+        HashMap<Integer, Integer> profit = new HashMap<>();
+        HashMap<Integer, Integer> expense = new HashMap<>();
 
-        consoleApp.printMenu();
+        printMenu();
         int userCommand = scanner.nextInt();
 
         while (userCommand != 0) {
@@ -20,23 +25,33 @@ public class Main {
                     monthlyReport.readAllMonthReport(amountFiles);
                     break;
                 case 2:
-                    yearlyReport.readYearReport();
+                    yearlyReport.readYearReport(profit, expense);
                     break;
                 case 3:
-                    dataReconciliation.reconciliation(amountFiles);
+                    dataReconciliation.reconciliation(amountFiles, sumOfIncome, sumOfExpense, profit,  expense);
                     break;
                 case 4:
-                    monthlyReport.informationAllMonthlyReport(amountFiles);
+                    monthlyReport.informationAllMonthlyReport(sumOfIncome, sumOfExpense);
                     break;
                 case 5:
-                    yearlyReport.informationYearReports(amountFiles);
+                    yearlyReport.informationYearReports(amountFiles, profit, expense);
                     break;
             }
 
-            consoleApp.printMenu();
+            printMenu();
             userCommand = scanner.nextInt();
         }
         System.out.println("Программа завершена");
+    }
+
+    private static void printMenu(){
+        System.out.println("Что вы хотите сделать? ");
+        System.out.println("1 - Считать все месячные отчёты");
+        System.out.println("2 - Считать годовой отчёт");
+        System.out.println("3 - Сверить отчёты");
+        System.out.println("4 - Вывести информацию о всех месячных отчётах");
+        System.out.println("5 - Вывести информацию о годовом отчёте");
+        System.out.println("0 - Выход");
     }
 
 

@@ -19,7 +19,7 @@ public class WorkWithFile {
         return lines;
     }
 
-    String fileName(int monthNumber){
+    String renamesMonthsForMonthlyAndYearlyReports(int monthNumber){
         String monthName = "";
         switch (monthNumber) {
             case 1:
