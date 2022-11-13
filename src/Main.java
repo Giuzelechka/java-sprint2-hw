@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = new YearlyReport();
-        DataReconciliation dataReconciliation = new DataReconciliation();
+        Comparison comparison = new Comparison();
         ArrayList<Integer> sumOfIncome = new ArrayList<>();
         ArrayList<Integer> sumOfExpense = new ArrayList<>();
         HashMap<Integer, Integer> profit = new HashMap<>();
@@ -28,7 +28,7 @@ public class Main {
                     yearlyReport.readYearReport(profit, expense);
                     break;
                 case 3:
-                    dataReconciliation.reconciliation(amountFiles, sumOfIncome, sumOfExpense, profit,  expense);
+                    comparison.reconciliation(amountFiles, sumOfIncome, sumOfExpense, profit,  expense);
                     break;
                 case 4:
                     monthlyReport.informationAllMonthlyReport(sumOfIncome, sumOfExpense);

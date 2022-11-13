@@ -2,8 +2,7 @@ import java.io.File;
 import java.util.HashMap;
 
 public class YearlyReport {
-    String pathYear = "C:/Users/Гюзель/dev/java-sprint2-hw/resources/y.2021.csv";
-    DataReconciliation dataReconciliation = new DataReconciliation();
+    String pathYear = "resources/y.2021.csv";
     WorkWithFile workWithFile = new WorkWithFile();
 
     void readYearReport(HashMap<Integer, Integer> profit, HashMap<Integer, Integer> expense) {
